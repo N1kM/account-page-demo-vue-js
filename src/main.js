@@ -1,5 +1,6 @@
 import Vue from 'vue'
-import VueResource from 'vue-resource';
+import VueResource from 'vue-resource'
+import Moment from 'moment'
 
 // Calls 'VueResource.install(Vue)'
 Vue.use(VueResource);
@@ -12,7 +13,7 @@ Vue.component('customer-section', {
   template: `
     <div v-if="customer">
       <div class="content">
-        <div class="media">
+        <div class="media" style="margin-bottom: 20px;">
           <div class="media-left">
             <figure class="image" style="height: 40px; width: 40px;">
               <img v-bind:src="customer.avatar">
@@ -23,10 +24,20 @@ Vue.component('customer-section', {
             <p class="subtitle is-6">{{ customer.username }}</p>
           </div>
         </div>
+        <p class="title">Manage how we notify you</p>
+        <pre>{{ customer.notifications }}</pre>        
+        <ul v-for="(type, key) in customer.notifications">
+          <li><button class="button is-small" v-on:click="toggleActive(key, type)" v-bind:class="{ 'is-success': type}">{{ key | titleCase }}</button></li>
+        </ul>
       </div>
     </div>
   `,
-  props: ["customer"]
+  props: ["customer"],
+  methods: {
+    toggleActive: function(key, type){
+      this.customer.notifications[key] = !type;
+    }
+  }  
 })
 
 Vue.component('bills-section', {
@@ -45,7 +56,7 @@ Vue.component('bills-section', {
           <tbody>
             <tr>
               <td>{{ bills[loadBill].total }}</td>
-              <td>{{ bills[loadBill].billDate }}</td>
+              <td>{{ bills[loadBill].billDate | dateTimeFormatted }}</td>
               <td>
                 <ul>
                   <li>Minutes: {{ bills[loadBill].used.minutes }}</li>
@@ -82,9 +93,9 @@ Vue.component('devices-section', {
     <div v-if="devices">
       <p class="title">Your devices...</p>
       <div class="content">     
-        <div v-for="device in devices" :key="device.id">     
-          {{ device.manuafacturer }} {{ device.product }} {{ device.model }}
-        </div>
+        <ul v-for="device in devices" :key="device.id">     
+          <li>{{ device.manuafacturer }} {{ device.product }} {{ device.model }}</li>
+        </ul>
       </div>
     </div>
   `,
@@ -97,48 +108,23 @@ Vue.component('contract-section', {
       <p class="title">Your contract...</p>
       <div class="content">    
         {{ contract.name }}
+        <ul>
+          <li>Start Date: {{ contract.startDate | dateTimeFormatted}}</li>
+          <li>End Date: {{ contract.endDate | dateTimeFormatted}}</li>          
+        </ul>
       </div>
     </div>
   `,
   props: ["contract"]
 })
 
-Vue.component('last-months-usages-section', {
-  template: `
-    <div v-if="contract">
-      <p class="title">Your usage last month...</p>
+Vue.filter('dateTimeFormatted', function (date) {
+  return Moment(date, 'YYYY-MM-DD').format('DD-MM-YYYY');
+});
 
-      <nav class="level is-mobile">
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Tweets</p>
-            <p class="title">3,456</p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Following</p>
-            <p class="title">123</p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Followers</p>
-            <p class="title">456K</p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">Likes</p>
-            <p class="title">789</p>
-          </div>
-        </div>
-      </nav>
-
-    </div>
-  `,
-  props: ["bills", "contract"]
-})
+Vue.filter('titleCase', function (str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+});
 
 new Vue({
   el: '#app',

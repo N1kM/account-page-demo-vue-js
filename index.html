@@ -4,14 +4,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.css" crossorigin="anonymous">    
   </head>
   <body>
-    <div id="app">
-      <div class="tile">
-        <div class="tile is-parent">
-          <article class="tile is-child notification is-success">
-            <last-months-usages-section v-bind:contract="contract" v-bind:contract="bills"></last-months-usages-section>
-          </article>
-        </div>        
-      </div>    
+    <div id="app">    
       <div class="tile">
         <div class="tile is-parent">
           <article v-if="customer" class="tile is-child notification is-info">
