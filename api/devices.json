@@ -1,0 +1,12 @@
+{
+  "devices": [
+    {
+      "manuafacturer": "Apple",
+      "product": "iPhone",
+      "model": "9s",
+      "serialNumber": "AP-01AHJSHH56",
+      "imei": "012345678901234",
+      "number": "07711 111 111"
+    }
+  ]
+}

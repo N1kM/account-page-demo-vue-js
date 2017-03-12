@@ -1,0 +1,14 @@
+{
+  "contract": {
+    "id": 5798457,
+    "name": "1GB data, 200 minutes, 400 text - 12 months",
+    "length": 12,
+    "total": 18.99,
+    "startDate": "2020-01-01T00:00:00+00:00",
+    "endDate": "2020-12-31T23:59:59+00:00",
+    "payment": "DD",
+    "minutes": 200,
+    "data": 1024,
+    "text": 400
+  }
+}

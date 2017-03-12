@@ -1,0 +1,148 @@
+{
+  "bills": [
+    {
+      "id": "NCC-5913864",
+      "billDate": "2020-02-01T00:00:00+00:00",
+      "dueDate": "2020-02-15T00:00:00+00:00",
+      "total": 23.41,
+      "settled": true,
+      "used": {
+        "minutes": 54,
+        "data": 1909,
+        "text": 67
+      }
+    },
+    {
+      "id": "NCC-5913865",
+      "billDate": "2020-03-01T00:00:00+00:00",
+      "dueDate": "2020-03-15T00:00:00+00:00",
+      "total": 18.99,
+      "settled": true,
+      "used": {
+        "minutes": 23,
+        "data": 807,
+        "text": 102
+      }
+    },
+    {
+      "id": "NCC-5913866",
+      "billDate": "2020-04-01T00:00:00+00:00",
+      "dueDate": "2020-04-15T00:00:00+00:00",
+      "total": 22.47,
+      "settled": true,
+      "used": {
+        "minutes": 34,
+        "data": 768,
+        "text": 429
+      }
+    },
+    {
+      "id": "NCC-5913867",
+      "billDate": "2020-05-01T00:00:00+00:00",
+      "dueDate": "2020-05-15T00:00:00+00:00",
+      "total": 19.34,
+      "settled": true,
+      "used": {
+        "minutes": 45,
+        "data": 1094,
+        "text": 237
+      }
+    },
+    {
+      "id": "NCC-5913868",
+      "billDate": "2020-06-01T00:00:00+00:00",
+      "dueDate": "2020-06-15T00:00:00+00:00",
+      "total": 18.99,
+      "settled": true,
+      "used": {
+        "minutes": 23,
+        "data": 807,
+        "text": 102
+      }
+    },
+    {
+      "id": "NCC-5913869",
+      "billDate": "2020-07-01T00:00:00+00:00",
+      "dueDate": "2020-07-15T00:00:00+00:00",
+      "total": 26.67,
+      "settled": true,
+      "used": {
+        "minutes": 23,
+        "data": 1792,
+        "text": 102
+      }
+    },
+    {
+      "id": "NCC-5913870",
+      "billDate": "2020-08-01T00:00:00+00:00",
+      "dueDate": "2020-08-15T00:00:00+00:00",
+      "total": 22.83,
+      "settled": true,
+      "used": {
+        "minutes": 118,
+        "data": 1987,
+        "text": 124
+      }
+    },
+    {
+      "id": "NCC-5913871",
+      "billDate": "2020-09-01T00:00:00+00:00",
+      "dueDate": "2020-09-15T00:00:00+00:00",
+      "total": 30.83,
+      "settled": true,
+      "used": {
+        "minutes": 178,
+        "data": 2208,
+        "text": 89
+      }
+    },
+    {
+      "id": "NCC-5913872",
+      "billDate": "2020-10-01T00:00:00+00:00",
+      "dueDate": "2020-10-15T00:00:00+00:00",
+      "total": 34.11,
+      "settled": true,
+      "used": {
+        "minutes": 246,
+        "data": 2882,
+        "text": 103
+      }
+    },
+    {
+      "id": "NCC-5913873",
+      "billDate": "2020-11-01T00:00:00+00:00",
+      "dueDate": "2020-11-15T00:00:00+00:00",
+      "total": 34.60,
+      "settled": true,
+      "used": {
+        "minutes": 234,
+        "data": 2786,
+        "text": 77
+      }
+    },
+    {
+      "id": "NCC-5913874",
+      "billDate": "2020-12-01T00:00:00+00:00",
+      "dueDate": "2020-12-15T00:00:00+00:00",
+      "total": 36.78,
+      "settled": true,
+      "used": {
+        "minutes": 262,
+        "data": 2101,
+        "text": 67
+      }
+    },
+    {
+      "id": "NCC-5913874",
+      "billDate": "2021-01-01T00:00:00+00:00",
+      "dueDate": "2021-01-15T00:00:00+00:00",
+      "total": 47.96,
+      "settled": true,
+      "used": {
+        "minutes": 298,
+        "data": 2897,
+        "text": 99
+      }
+    }
+  ]
+}
