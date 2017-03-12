@@ -78,12 +78,12 @@ Vue.component('bills-section', {
   props: ["bills"],
   data: function () {
     return {
-      loadBill: "0"
+      loadBill: "0" // Started with first index in array
     }
   },
   methods: {
     showBillDetails(key) {
-      this.loadBill = key;
+      this.loadBill = key; // Set loadBill to the target index in array
     }
   }   
 })
@@ -118,14 +118,27 @@ Vue.component('contract-section', {
   props: ["contract"]
 })
 
+/**
+ * dateTimeFormatted - returns formatted time back
+ * @param  {[dataTime]}
+ * @return {[timeformat]}
+ */
 Vue.filter('dateTimeFormatted', function (date) {
   return Moment(date, 'YYYY-MM-DD').format('DD-MM-YYYY');
 });
 
+/**
+ * titleCase - returns str back with first letter capitalised
+ * @param  {[str]}
+ * @return {[str]}
+ */
 Vue.filter('titleCase', function (str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 });
 
+/**
+ * Vue root instance
+ */
 new Vue({
   el: '#app',
   data: {
@@ -135,6 +148,7 @@ new Vue({
     customer: {}    
   },
   mounted: function () {
+    // Run our GET requests to fetch API data
     this.getBills();
     this.getDevices();        
     this.getContract();
@@ -147,6 +161,8 @@ new Vue({
       this.$http.get(route).then((response) => {
         this.bills = response.body.bills;
       });
+
+      // Proper error handling would go here should the request fail
     },
     getDevices() {
       var route = config.apiURL + '/devices.json';
