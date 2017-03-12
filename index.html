@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>acc-page-ncc</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.css" crossorigin="anonymous">    
   </head>
   <body>
     <div id="app">
       <div class="tile">
         <div class="tile is-parent">
-          <article class="tile is-child notification is-info">
-            <customer-section></customer-section>
+          <article class="tile is-child notification is-success">
+            <last-months-usages-section v-bind:contract="contract" v-bind:contract="bills"></last-months-usages-section>
+          </article>
+        </div>        
+      </div>    
+      <div class="tile">
+        <div class="tile is-parent">
+          <article v-if="customer" class="tile is-child notification is-info">
+            <customer-section v-bind:customer="customer"></customer-section>
           </article>
         </div>    
         <div class="tile is-parent is-vertical">
-          <article class="tile is-child notification is-primary">
-            <contract-section></contract-section>
+          <article v-if="contract" class="tile is-child notification is-primary">
+            <contract-section v-bind:contract="contract"></contract-section>
           </article>
-          <article class="tile is-child notification is-warning">
-            <devices-section></devices-section>
+          <article v-if="devices" class="tile is-child notification is-warning">
+            <devices-section v-bind:devices="devices"></devices-section>
           </article>
         </div>
         <div class="tile is-parent">
-          <article class="tile is-child notification is-danger">
-            <bills-section></bills-section>
+          <article v-if="bills" class="tile is-child notification is-danger">
+            <bills-section v-bind:bills="bills"></bills-section>
           </article>
         </div>          
       </div> 
