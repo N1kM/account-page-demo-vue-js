@@ -1,6 +1,6 @@
-# acc-page-ncc
+# account-page-demo-vue-js
 
-> My take on a simple acc page
+> My take on a simple account page with VueJS, working from the provided JSON data. 
 
 ## Build Setup
 
@@ -14,5 +14,3 @@ npm run dev
 # build for production with minification
 npm run build
 ```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
