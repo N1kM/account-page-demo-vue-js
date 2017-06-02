@@ -22,10 +22,13 @@ Vue.component('customer-section', {
           <div class="media-content">
             <p class="title is-4">{{ customer.firstName }} {{ customer.lastName }}</p>
             <p class="subtitle is-6">{{ customer.username }}</p>
+            <hr />
+            <p>Email: {{ customer.email }}</p>
+            <p>Address:<br />{{ customer.addressLine1 }}, <span v-if="customer.addressLine2">{{ customer.addressLine2 }},</span> {{ customer.town }}<span v-if="customer.county">, {{ customer.county }}</span><br />{{ customer.country }}, {{ customer.postcode }}</p>
           </div>
         </div>
         <p class="title">Manage how we notify you</p>
-        <pre>{{ customer.notifications }}</pre>        
+        <pre>{{ customer.notifications }}</pre>
         <ul v-for="(type, key) in customer.notifications">
           <li><button class="button is-small" v-on:click="toggleActive(key, type)" v-bind:class="{ 'is-success': type}">{{ key | titleCase }}</button></li>
         </ul>
@@ -37,7 +40,7 @@ Vue.component('customer-section', {
     toggleActive: function(key, type){
       this.customer.notifications[key] = !type;
     }
-  }  
+  }
 })
 
 Vue.component('bills-section', {
@@ -49,7 +52,7 @@ Vue.component('bills-section', {
           <thead>
             <tr>
               <th>Total</th>
-              <th>Bill Date</th>              
+              <th>Bill Date</th>
               <th>Usage</th>
             </tr>
           </thead>
@@ -61,14 +64,14 @@ Vue.component('bills-section', {
                 <ul>
                   <li>Minutes: {{ bills[loadBill].used.minutes }}</li>
                   <li>SMS: {{ bills[loadBill].used.text }}</li>
-                  <li>Data: {{ bills[loadBill].used.data }}</li>                  
+                  <li>Data: {{ bills[loadBill].used.data }}</li>
                 </ul>
               </td>
             </tr>
           </tbody>
-        </table>            
+        </table>
       </div>
-      <div class="content">    
+      <div class="content">
         <div v-for="(value, key) in bills" style="margin-bottom: 5px;">
           {{ value.id }} <button class="button is-small is-primary" @click="showBillDetails(key)">Show Bill</button>
         </div>
@@ -85,15 +88,15 @@ Vue.component('bills-section', {
     showBillDetails(key) {
       this.loadBill = key; // Set loadBill to the target index in array
     }
-  }   
+  }
 })
 
 Vue.component('devices-section', {
   template: `
     <div v-if="devices">
       <p class="title">Your devices...</p>
-      <div class="content">     
-        <ul v-for="device in devices" :key="device.id">     
+      <div class="content">
+        <ul v-for="device in devices" :key="device.id">
           <li>{{ device.manuafacturer }} {{ device.product }} {{ device.model }}</li>
         </ul>
       </div>
@@ -106,13 +109,15 @@ Vue.component('contract-section', {
   template: `
     <div v-if="contract">
       <p class="title">Your contract...</p>
-      <div class="content">    
+      <div class="content">
         {{ contract.name }}
         <ul>
           <li>Start Date: {{ contract.startDate | dateTimeFormatted}}</li>
-          <li>End Date: {{ contract.endDate | dateTimeFormatted}}</li>          
+          <li>End Date: {{ contract.endDate | dateTimeFormatted}}</li>
         </ul>
       </div>
+      <p>Monthly cost: £{{ contract.total }}</p>
+      <p>Payment type: {{ contract.payment }}</p>
     </div>
   `,
   props: ["contract"]
@@ -145,15 +150,15 @@ new Vue({
     bills: [],
     devices: [],
     contract: {},
-    customer: {}    
+    customer: {}
   },
   mounted: function () {
     // Run our GET requests to fetch API data
     this.getBills();
-    this.getDevices();        
+    this.getDevices();
     this.getContract();
-    this.getCustomer();    
-  },  
+    this.getCustomer();
+  },
   methods: {
     getBills() {
       var route = config.apiURL + '/bills.json';
@@ -184,6 +189,6 @@ new Vue({
       this.$http.get(route).then((response) => {
         this.customer = response.body.customer;
       });
-    }            
-  }    
+    }
+  }
 })
