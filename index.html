@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.css" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.css" crossorigin="anonymous">
   </head>
   <body>
-    <div id="app">    
+    <div id="app">
       <div class="tile">
         <div class="tile is-parent">
           <article v-if="customer" class="tile is-child notification is-info">
             <customer-section v-bind:customer="customer"></customer-section>
           </article>
-        </div>    
+        </div>
         <div class="tile is-parent is-vertical">
           <article v-if="contract" class="tile is-child notification is-primary">
             <contract-section v-bind:contract="contract"></contract-section>
@@ -23,9 +23,9 @@
           <article v-if="bills" class="tile is-child notification is-danger">
             <bills-section v-bind:bills="bills"></bills-section>
           </article>
-        </div>          
-      </div> 
-    </div>  
+        </div>
+      </div>
+    </div>
 
     <script src="/dist/build.js"></script>
   </body>
